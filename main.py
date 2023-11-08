@@ -16,13 +16,21 @@ display = []
 for _ in chosen_word:
     display.append('_')
 
-# Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-guess = input("Guess a letter: ").lower()
-
-# Check if the letter the user guessed (guess) is one of the leters in the chosen_word.
-for i in range(len(chosen_word)):
-    if chosen_word[i] == guess:
-        display[i] = guess
+end_of_game = False
+lives = 6
+while lives != 0 and display != list(chosen_word):
+    # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
+    guess = input("Guess a letter: ").lower()
+    # Check if the letter the user guessed (guess) is one of the leters in the chosen_word.
+    if guess in chosen_word:
+        for i in range(len(chosen_word)):
+            if chosen_word[i] == guess:
+                display[i] = guess
         print("Right", display)
     else:
-        print("Wrong")
+        print("Wrong", display)
+    lives -= 1
+if display == list(chosen_word):
+    print("YOU WIN!")
+else:
+    print("GAME OVER!")
