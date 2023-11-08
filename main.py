@@ -18,9 +18,17 @@ for _ in chosen_word:
 
 end_of_game = False
 lives = 6
+attempts = []
 while lives != 0 and display != list(chosen_word):
-    # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-    guess = input("Guess a letter: ").lower()
+    test = True
+    while test:
+        # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
+        guess = input("Guess a letter: ").lower()
+        if guess in attempts:
+            print("You already checked this letter, try another one.")
+        else:
+            attempts.append(guess)
+            test = False
     # Check if the letter the user guessed (guess) is one of the leters in the chosen_word.
     if guess in chosen_word:
         for i in range(len(chosen_word)):
