@@ -1,19 +1,24 @@
 from plus import game_over
-import random  # import random module
+import random
 
-colors = ['red', 'blue', 'green']  # create list
-new_list = colors  # duplicate list to new variable
+colors = ['red', 'blue', 'green']
+new_list = colors
+colors_copy = colors.copy()
 random.shuffle(colors)
-print(new_list)  # what is the expected outcome of this output? why?
+print(f"{colors}, id: {id(colors)}")
+print(f"{new_list}, id: {id(new_list)}")
+print(f"{colors_copy}, id: {id(colors_copy)}")
 
 """
-
+Коли ми створили нову змінну "new_list" та присвоїли їй значення змінної "colors", насправді, ми не робимо її копію, а лише зберігаємо посилання на неї.
+В цьому легко впевнитись за допомогою функції id(). Бачимо, що їхні id однакові, а отже при зміні однієї зі змінних змінюється й друга.
+Щоб уникнути цього та створити повноцінну незалежну копію, варто скористатися методом .copy(), про що свідчить наведений приклад зі змінною "colors_copy".
 """
 
-# Create list
+# HANGMAN
+
 word_list = ["aardvark", "baboon", "camel"]
 
-# Randomly choose a word from the word_list and assign it to a variable called chosen_word.
 chosen_word = random.choice(word_list)
 print(chosen_word)
 
@@ -28,14 +33,12 @@ attempts = []
 while lives != 0 and display != list(chosen_word):
     test = True
     while test:
-        # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
         guess = input("Guess a letter: ").lower()
         if guess in attempts:
             print("You already checked this letter, try another one.")
         else:
             attempts.append(guess)
             test = False
-    # Check if the letter the user guessed (guess) is one of the leters in the chosen_word.
     if guess in chosen_word:
         for i in range(len(chosen_word)):
             if chosen_word[i] == guess:
