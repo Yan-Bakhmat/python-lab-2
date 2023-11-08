@@ -1,6 +1,6 @@
 from PIL import Image
 
-im = Image.open("GAME_OVER.jpg")
+im = Image.open("GAMEOVER.jpg")
 
 
 def game_over():
