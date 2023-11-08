@@ -1,4 +1,5 @@
 from plus import game_over
+from words import create_words
 import random
 import pickle
 
@@ -17,6 +18,8 @@ print(f"{colors_copy}, id: {id(colors_copy)}")
 """
 
 # HANGMAN game
+
+create_words()
 
 load_file = open('words.dat', 'rb')
 word_list = pickle.load(load_file)
