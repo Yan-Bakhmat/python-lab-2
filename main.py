@@ -1,5 +1,6 @@
 from plus import game_over
 import random
+import pickle
 
 colors = ['red', 'blue', 'green']
 new_list = colors
@@ -15,9 +16,11 @@ print(f"{colors_copy}, id: {id(colors_copy)}")
 Щоб уникнути цього та створити повноцінну незалежну копію, варто скористатися методом .copy(), про що свідчить наведений приклад зі змінною "colors_copy".
 """
 
-# HANGMAN
+# HANGMAN game
 
-word_list = ["aardvark", "baboon", "camel"]
+load_file = open('words.dat', 'rb')
+word_list = pickle.load(load_file)
+load_file.close()
 
 chosen_word = random.choice(word_list)
 print(chosen_word)
