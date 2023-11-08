@@ -1,9 +1,14 @@
+from plus import game_over
 import random  # import random module
 
 colors = ['red', 'blue', 'green']  # create list
 new_list = colors  # duplicate list to new variable
 random.shuffle(colors)
-print(new_list)  # what is the expected outcome of this output? Why?
+print(new_list)  # what is the expected outcome of this output? why?
+
+"""
+
+"""
 
 # Create list
 word_list = ["aardvark", "baboon", "camel"]
@@ -19,6 +24,7 @@ for _ in chosen_word:
 end_of_game = False
 lives = 6
 attempts = []
+
 while lives != 0 and display != list(chosen_word):
     test = True
     while test:
@@ -41,4 +47,4 @@ while lives != 0 and display != list(chosen_word):
 if display == list(chosen_word):
     print("YOU WIN!")
 else:
-    print("GAME OVER!")
+    game_over()
